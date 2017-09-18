@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+   <title>room control</title>
+</head>
+
+<body>
+   <h1>Device Listing and Status</h1>
+
+   {% for pin in pins %}
+   <p>The {{ pins[pin].name }}
+   {% if pins[pin].state == 'True' %}
+      is currently on (<a href="{{pin}}/0">turn off</a>)
+   {% else %}
+      is currently off (<a href="{{pin}}/1">turn on</a>)
+   {% endif %}
+   </p>
+   {% endfor %}
+
+   {% if message %}
+   <h2>{{ message }}</h2>
+   {% endif %}
+
+</body>
+</html>
